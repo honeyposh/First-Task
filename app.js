@@ -26,9 +26,9 @@ app.get("/firsttask/api", (req, res) => {
     current_day: dayToday,
     utc_time: utc_time,
     track: track,
-    status_code: statusCode,
     github_file_url: githubfileurl,
     github_repo_url: githubrepourl,
+    status_code: statusCode,
   };
   res.json(data);
 });
