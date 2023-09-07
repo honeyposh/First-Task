@@ -18,7 +18,8 @@ app.get("/firsttask/api", (req, res) => {
   let dayToday = daysOfTheWeek[utc_time.getDay()];
 
   let githubrepourl = "https://github.com/honeyposh/First-Task.git";
-  // let githubfileurl=
+  let githubfileurl =
+    "https://github.com/honeyposh/First-Task/blob/main/app.js";
 
   const data = {
     slack_name: slackname,
@@ -26,7 +27,7 @@ app.get("/firsttask/api", (req, res) => {
     utc_time: utc_time,
     track: track,
     status_code: statusCode,
-    // github_file_url:githubfileurl
+    github_file_url: githubfileurl,
     github_repo_url: githubrepourl,
   };
   res.json(data);
