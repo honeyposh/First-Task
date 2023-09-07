@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.get("/firsttask/api", (req, res) => {
+app.get("/", (req, res) => {
   const slackname = req.query.slack_name;
   const track = req.query.track;
   const utc_time = new Date();
