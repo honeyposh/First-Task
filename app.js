@@ -5,12 +5,7 @@ app.get("/api", (req, res) => {
   const slackname = req.query.slack_name;
   const track = req.query.track;
   const now = new Date();
-  const utc_time =
-    new Date(
-      now.getTime() + now.getTimezoneOffset() * 60000 + 2 * 60 * 60 * 1000
-    )
-      .toISOString()
-      .slice(0, -5) + "Z";
+  const utc_time = now.toISOString().slice(0, 19) + "Z";
   // console.log(utc_time);
   // console.log(now);
   const statusCode = res.statusCode;
