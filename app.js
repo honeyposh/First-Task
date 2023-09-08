@@ -4,7 +4,15 @@ const PORT = process.env.PORT || 3000;
 app.get("/api", (req, res) => {
   const slackname = req.query.slack_name;
   const track = req.query.track;
-  const utc_time = new Date();
+  const now = new Date();
+  const utc_time =
+    new Date(
+      now.getTime() + now.getTimezoneOffset() * 60000 + 2 * 60 * 60 * 1000
+    )
+      .toISOString()
+      .slice(0, -5) + "Z";
+  // console.log(utc_time);
+  // console.log(now);
   const statusCode = res.statusCode;
   let daysOfTheWeek = [
     "Sunday",
@@ -15,7 +23,7 @@ app.get("/api", (req, res) => {
     "Friday",
     "Saturday",
   ];
-  let dayToday = daysOfTheWeek[utc_time.getDay()];
+  let dayToday = daysOfTheWeek[now.getDay()];
 
   let githubrepourl = "https://github.com/honeyposh/First-Task.git";
   let githubfileurl =
